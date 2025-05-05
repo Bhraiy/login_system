@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>RMC Attendance System</title>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            transition: opacity 0.8s ease-in-out;
+            overflow: hidden;
+            background: linear-gradient(135deg, #007bff, #00d4ff);
+        }
+
+      
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+       
+        nav.navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .logotext {
+            font-size: 26px;
+            font-weight: 700;
+            color: #00d4ff;
+            letter-spacing: 1px;
+        }
+
+        .navmenu {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .navitem .navlink {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .navlink:hover {
+            color: #00d4ff;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .hero-text {
+            font-size: 60px;
+            font-weight: 700;
+            line-height: 1.3;
+            color: #fff;
+            max-width: 900px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-subtext {
+            font-size: 20px;
+            color: #e0e0e0;
+            max-width: 800px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+
+        audio {
+            display: none;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: #e0e0e0;
+            font-size: 14px;
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .hero-text {
+                font-size: 40px;
+            }
+
+            .navmenu {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px 20px;
+            }
+
+            .logotext {
+                font-size: 22px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline class="video-background">
+            <source src="rmc.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="rmc (mp3cut.net).mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logotext">Attendance System</div>
+        <ul class="navmenu">
+            <li class="navitem"><a href="#" class="navlink" onclick="navigate('http://localhost:8080/login%20system/login_form.php')">LOGIN</a></li>
+            <li class="navitem"><a href="#" class="navlink" onclick="navigate('Contact.html')">Contact</a></li>
+            <li class="navitem"><a href="#" class="navlink" onclick="navigate('login.html')">Log out</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1 class="hero-text">Welcome to RMC Attendance System</h1>
+        <p class="hero-subtext">Track, manage, and automate attendance for students, faculty, and administrators in one seamless platform.</p>
+    </section>
+
+    <!-- Footer -->
+  <div class="footer">
+    &copy; 2025 Regis Marie College. All rights reserved.
+  </div>
+  
+    <script>
+        function navigate(targetUrl) {
+            document.body.classList.add('fade-out');
+            setTimeout(function () {
+                location.replace(targetUrl); 
+            }, 800);
+        }
+    </script>
+
+</body>
+</html>
