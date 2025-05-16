@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student After Scan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #ffe4ec; 
+      color: #4b004b;
+    }
+
+    .top-headline {
+      background-color: #021024; 
+      color: #ffffff;
+      text-align: center;
+      padding: 15px;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .top-headline img {
+      height: 1em;
+      vertical-align: middle;
+    }
+
+    .dashboard {
+      display: flex;
+    }
+
+    .sidebar {
+      background-color: #fcbad3;
+      color: #4b004b;
+      padding: 20px;
+      min-height: 100vh;
+      width: 80px;
+    }
+
+    .sidebar .logo {
+      font-size: 30px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .sidebar .logo a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .sidebar nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+
+    .sidebar nav ul li {
+      margin: 20px 0;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .sidebar nav ul li.active {
+      font-weight: bold;
+      color: #c9184a;
+    }
+
+    .main {
+      padding: 20px;
+      flex-grow: 1;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #c9184a55;
+      padding-bottom: 10px;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    .profile {
+      font-size: 14px;
+      color: #880e4f;
+    }
+
+    .classes h3 {
+      margin-bottom: 10px;
+    }
+
+    .student-info-table {
+      width: 100%;
+      background-color: #ffd6e0;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      margin-top: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .student-info-table td {
+      padding: 10px;
+    }
+
+    .student-info-table .name {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .student-info-table .id {
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="top-headline">
+    <img src="rmc.png" alt="Logo">
+    RMC Student Portal
+  </div>
+
+  <div class="dashboard">
+    
+    <aside class="sidebar">
+      <div class="logo">
+        <a href="faculty-dashboard.php" title="Go to Teacher Home Page">📘</a>
+      </div>
+      <nav>
+        <ul>
+          <li class="active"><a href="faculty-approval.php" title="Approve Students">✅</a></li>
+          <li class="active"><a href="facul-sattendance.php" title="Student Attendance">📋</a></li>
+          <li class="active"><a href="#" title="Attendance">🎓</a></li>
+          <li><a href="calendar.php" title="Calendar">📅</a></li>
+          <li><a href="settings.php" title="Settings">⚙️</a></li>
+          <li><a href="login_form.php" title="Logout">🔒</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header>
+        <h1>AFTER Scan!</h1>
+        <div class="profile">👤 student@rmc.edu</div>
+      </header>
+
+          <div class="info-box">
+        <h2>Student Scanned Info</h2>
+        <p><strong>Full Name:</strong> <span id="display-name">Loading...</span></p>
+        <p><strong>Student ID:</strong> <span id="display-id">Loading...</span></p>
+      </div>
+        </main>
+      </div>
+  
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const fullname = params.get("fullname");
+    const studentid = params.get("studentid");
+
+    document.getElementById("display-name").textContent = fullname || "Not found";
+    document.getElementById("display-id").textContent = studentid || "Not found";
+  </script>
+
+
+
+</body>
+</html>
